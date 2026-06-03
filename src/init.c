@@ -10,7 +10,7 @@ game_state_t* init() {
 
     InitWindow(screenWidth, screenHeight, "Operation kaiser");
 
-    game_state_t* game_state = (game_state_t*)malloc(sizeof(game_state_t));
+    struct game_state* game_state = (game_state*)malloc(sizeof(game_state));
 
     game_state->foo = 67;
     game_state->bar = 69;
