@@ -5,7 +5,7 @@
 
 int main(void) {
 
-    game_state_t* game_state = init();
+    struct game_state* game_state = init();
 
     while (!WindowShouldClose()) {
 

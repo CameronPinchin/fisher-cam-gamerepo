@@ -1,3 +1,3 @@
 #include "kaiser.h"
 
-void draw(const game_state_t* game_state);
+void draw(const struct game_state* game_state);

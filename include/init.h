@@ -1,3 +1,3 @@
 #include "kaiser.h"
 
-game_state_t* init();
+struct game_state* init();

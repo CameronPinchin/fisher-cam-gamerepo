@@ -1,3 +1,3 @@
 #include "kaiser.h"
 
-game_state_t* update(game_state_t* game_state);
+struct game_state* update(struct game_state* game_state);
