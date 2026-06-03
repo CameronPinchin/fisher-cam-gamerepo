@@ -3,8 +3,32 @@
 #ifndef KASIER_H
 #define KAISER_H
 
-struct game_state {
+#define SCREEN_HEIGHT               450
+#define SCREEN_WIDTH                800
+#define FRAMES_PER_SECOND           60
 
+struct coordinate_position {
+    int x;
+    int y;
+};
+
+struct obstacle {
+    struct coordinate_position;                /* (x,y) positions on the board */
+    const int length;
+    const int width;
+};
+
+struct player_state {
+
+};
+
+struct obstacle_state {
+
+};
+
+struct game_state {
+    struct player_state player;
+    struct obstacle_state obstacle;
 };
 
 #endif
