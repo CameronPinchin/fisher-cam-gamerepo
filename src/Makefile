@@ -7,8 +7,8 @@ LDFLAGS = -lraylib
 TARGET=kaiser
 TARGET_DEBUG=kaiser-dbg
 
-SRCS=kaiser.c main.c
-OBJS=kaiser.o main.o
+SRCS= main.c draw.c update.c init.c
+OBJS= main.o draw.o update.o init.o
 
 TARGET_DIR=releases
 

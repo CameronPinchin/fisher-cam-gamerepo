@@ -1,14 +1,17 @@
-#include "raylib.h"
+#include "../include/kaiser.h"
+#include "../include/init.h"
+#include "../include/update.h"
+#include "../include/draw.h"
 
 int main(void) {
 
-    init();
+    game_state_t* game_state = init();
 
     while (!WindowShouldClose()) {
 
-        update();
+        game_state = update(game_state);
 
-        draw();
+        draw(game_state);
 
     }
 
