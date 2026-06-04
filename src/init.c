@@ -4,56 +4,64 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <errno.h>
+
+static void populate_struct(struct obstacle* obstacle, int x, int y, int w, int h)
+{
+    obstacle->coordinate_position->x = x;
+    obstacle->coordinate_position->y = y;
+    obstacle->width = w;
+    obstacle->height = h;
+}
 
 /* this will get changed to a loop, macros are for an initial testing ground & switch case is more performant due to costs paid at compile time */
 static struct obstacle* init_obstacle(int obstacle_index)
 {
-    // add error handling if malloc fails
     struct obstacle* obstacle = malloc(sizeof(*obstacle));
     obstacle->coordinate_position = malloc(sizeof(*obstacle->coordinate_position));
 
+    if(obstacle == NULL || obstacle->coordinate_position == NULL){
+        free(obstacle->coordinate_position);
+        free(obstacle);
+        fprintf(stderr, "[ERROR] %s\n", strerror(errno));
+        return NULL;
+    }
+
     switch (obstacle_index){
         case 0:
-            obstacle->coordinate_position->x = OBSTACLE_ONE_X;
-            obstacle->coordinate_position->y = OBSTACLE_ONE_Y;
-            obstacle->width = OBSTACLE_ONE_WIDTH;
-            obstacle->height = OBSTACLE_ONE_HEIGHT;
+
+            populate_struct(obstacle, OBSTACLE_ONE_X, OBSTACLE_ONE_Y, \
+                OBSTACLE_ONE_WIDTH, OBSTACLE_ONE_HEIGHT);
 
             return obstacle;
         case 1:
-            obstacle->coordinate_position->x = OBSTACLE_TWO_X;
-            obstacle->coordinate_position->y = OBSTACLE_TWO_Y;
-            obstacle->width = OBSTACLE_TWO_WIDTH;
-            obstacle->height = OBSTACLE_TWO_HEIGHT;
+
+            populate_struct(obstacle, OBSTACLE_TWO_X, OBSTACLE_TWO_Y, \
+                OBSTACLE_TWO_WIDTH, OBSTACLE_TWO_HEIGHT);
 
             return obstacle;
         case 2:
-            obstacle->coordinate_position->x = OBSTACLE_THREE_X;
-            obstacle->coordinate_position->y = OBSTACLE_THREE_Y;
-            obstacle->width = OBSTACLE_THREE_WIDTH;
-            obstacle->height = OBSTACLE_THREE_HEIGHT;
+
+            populate_struct(obstacle, OBSTACLE_THREE_X, OBSTACLE_THREE_Y, \
+                OBSTACLE_THREE_WIDTH, OBSTACLE_THREE_HEIGHT);
 
             return obstacle;
         case 3:
-            obstacle->coordinate_position->x = OBSTACLE_FOUR_X;
-            obstacle->coordinate_position->y = OBSTACLE_FOUR_Y;
-            obstacle->width = OBSTACLE_FOUR_WIDTH;
-            obstacle->height = OBSTACLE_FOUR_HEIGHT;
+
+            populate_struct(obstacle, OBSTACLE_FOUR_X, OBSTACLE_FOUR_Y, \
+                OBSTACLE_FOUR_WIDTH, OBSTACLE_FOUR_HEIGHT);
 
             return obstacle;
         case 4:
-            obstacle->coordinate_position->x = OBSTACLE_FIVE_X;
-            obstacle->coordinate_position->y = OBSTACLE_FIVE_Y;
-            obstacle->width = OBSTACLE_FIVE_WIDTH;
-            obstacle->height = OBSTACLE_FIVE_HEIGHT;
+
+            populate_struct(obstacle, OBSTACLE_FIVE_X, OBSTACLE_FIVE_Y, \
+                OBSTACLE_FIVE_WIDTH, OBSTACLE_FIVE_HEIGHT);
 
             return obstacle;
         default:
             fprintf(stderr, "[ERROR] Failed to initialize objects. Returning NULL.\n");
             return NULL;
     };
-
-    return obstacle;
 }
 
 static int init_obstacles(struct game_state* game_state)
@@ -71,7 +79,6 @@ static int init_obstacles(struct game_state* game_state)
 
 struct game_state* init()
 {
-    int err;
     const int screenWidth = SCREEN_WIDTH;
     const int screenHeight = SCREEN_HEIGHT;
 
@@ -79,7 +86,7 @@ struct game_state* init()
 
     struct game_state* game_state = malloc(sizeof *game_state);
     game_state->obstacle_state = malloc(sizeof *game_state->obstacle_state); // all pointer-members need to be malloc'd too.
-    err = init_obstacles(game_state);
+    init_obstacles(game_state);
 
     return game_state;
 }

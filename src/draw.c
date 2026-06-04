@@ -4,7 +4,7 @@
 
 void draw_obstacles(const struct game_state* game_state)
 {
-    int err, i;
+    int i;
 
     for(i = 0; i < MAX_OBSTACLES; i++){
         DrawRectangle(
