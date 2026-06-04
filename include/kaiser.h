@@ -4,7 +4,7 @@
 #define KAISER_H
 
 #define SCREEN_HEIGHT               1000
-#define SCREEN_WIDTH                1500
+#define SCREEN_WIDTH                1000
 #define FRAMES_PER_SECOND           60
 
 #define MAX_OBSTACLES               5
