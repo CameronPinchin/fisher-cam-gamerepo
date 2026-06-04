@@ -17,6 +17,8 @@ int main(void) {
 
     CloseWindow();
 
+    cleanup(game_state);
+
     return 0;
 
 }

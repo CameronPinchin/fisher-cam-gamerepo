@@ -7,7 +7,7 @@
 #define SCREEN_WIDTH                1000
 #define FRAMES_PER_SECOND           60
 
-#define MAX_OBSTACLES               5
+#define MAX_OBSTACLES               10
 
 struct coordinate_position {
     int x;

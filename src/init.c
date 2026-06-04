@@ -58,6 +58,36 @@ static struct obstacle* init_obstacle(int obstacle_index)
                 OBSTACLE_FIVE_WIDTH, OBSTACLE_FIVE_HEIGHT);
 
             return obstacle;
+        case 5:
+
+            populate_struct(obstacle, OBSTACLE_SIX_X, OBSTACLE_SIX_Y, \
+                OBSTACLE_SIX_WIDTH, OBSTACLE_SIX_HEIGHT);
+
+            return obstacle;
+        case 6:
+
+            populate_struct(obstacle, OBSTACLE_SEVEN_X, OBSTACLE_SEVEN_Y, \
+                OBSTACLE_SEVEN_WIDTH, OBSTACLE_SEVEN_HEIGHT);
+
+            return obstacle;
+        case 7:
+
+            populate_struct(obstacle, OBSTACLE_EIGHT_X, OBSTACLE_EIGHT_Y, \
+                OBSTACLE_EIGHT_WIDTH, OBSTACLE_EIGHT_HEIGHT);
+
+            return obstacle;
+        case 8:
+
+            populate_struct(obstacle, OBSTACLE_NINE_X, OBSTACLE_NINE_Y, \
+                OBSTACLE_NINE_WIDTH, OBSTACLE_NINE_HEIGHT);
+
+            return obstacle;
+        case 9:
+
+            populate_struct(obstacle, OBSTACLE_TEN_X, OBSTACLE_TEN_Y, \
+                OBSTACLE_TEN_WIDTH, OBSTACLE_TEN_HEIGHT);
+
+            return obstacle;
         default:
             fprintf(stderr, "[ERROR] Failed to initialize objects. Returning NULL.\n");
             return NULL;
@@ -89,4 +119,19 @@ struct game_state* init()
     init_obstacles(game_state);
 
     return game_state;
+}
+
+void cleanup(struct game_state* game_state)
+{
+    int i;
+
+    for(i = 0; i < MAX_OBSTACLES; i++){
+        free(game_state->obstacle_state->all_obstacles[i]->coordinate_position);
+        free(game_state->obstacle_state->all_obstacles[i]);
+    }
+
+    free(game_state->obstacle_state->all_obstacles);
+    free(game_state->obstacle_state);
+    free(game_state);
+
 }
