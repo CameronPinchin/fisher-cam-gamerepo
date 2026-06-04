@@ -5,19 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// int init(struct *game_state game_state)
-// {
-//
-//     const int screenWidth = SCREEN_WIDTH;
-//     const int screenHeight = SCREEN_HEIGHT;
-//
-//     InitWindow(screenWidth, screenHeight, "Operation kaiser");
-//
-//     struct game_state* game_state = (struct game_state*)malloc(sizeof(game_state));
-//
-//     /* need a destructor for the mallocs */
-// }
-
+/* this will get changed to a loop, macros are for an initial testing ground & switch case is more performant due to costs paid at compile time */
 static struct obstacle* init_obstacle(int obstacle_index)
 {
     // add error handling if malloc fails
