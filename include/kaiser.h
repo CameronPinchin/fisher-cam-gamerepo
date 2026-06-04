@@ -3,9 +3,11 @@
 #ifndef KASIER_H
 #define KAISER_H
 
-#define SCREEN_HEIGHT               450
-#define SCREEN_WIDTH                800
+#define SCREEN_HEIGHT               1000
+#define SCREEN_WIDTH                1500
 #define FRAMES_PER_SECOND           60
+
+#define MAX_OBSTACLES               5
 
 struct coordinate_position {
     int x;
@@ -13,9 +15,9 @@ struct coordinate_position {
 };
 
 struct obstacle {
-    struct coordinate_position;                /* (x,y) positions on the board */
-    const int length;
-    const int width;
+    struct coordinate_position *coordinate_position;                /* (x,y) positions on the board */
+    int height;
+    int width;
 };
 
 struct player_state {
@@ -23,12 +25,12 @@ struct player_state {
 };
 
 struct obstacle_state {
-
+    struct obstacle *all_obstacles[MAX_OBSTACLES];
 };
 
 struct game_state {
     struct player_state player;
-    struct obstacle_state obstacle;
+    struct obstacle_state *obstacle_state;
 };
 
 #endif
