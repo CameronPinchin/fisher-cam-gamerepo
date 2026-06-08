@@ -17,11 +17,9 @@ int main(void) {
 
     }
 
-    // Cleanup
-    free(game_state);
-
     CloseWindow();
 
-    return 0;
+    cleanup(game_state);
 
+    return 0;
 }

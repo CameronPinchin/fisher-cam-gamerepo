@@ -1,6 +1,5 @@
-#include "kaiser.h"
-
 /* OBSTACLE MACROS */
+
 #define OBSTACLE_ONE_X                  67
 #define OBSTACLE_ONE_Y                  60
 #define OBSTACLE_ONE_WIDTH              260
@@ -50,8 +49,3 @@
 #define OBSTACLE_TEN_Y                  790
 #define OBSTACLE_TEN_WIDTH              260
 #define OBSTACLE_TEN_HEIGHT             90
-
-
-/* FORWARD DECLARATIONS */
-struct game_state* init();
-void cleanup(struct game_state*);
