@@ -23,16 +23,13 @@ void draw_obstacles(const struct game_state* game_state)
 void draw(struct game_state* game_state)
 {
 
-
     BeginDrawing();
+        struct player* player = &(game_state->player); // local player pointer assigned to malloc'd game_state->player member
 
         ClearBackground(RAYWHITE);
 
         /* Draw Obastacles */
         draw_obstacles(game_state);
-
-
-        struct player* player = &(game_state->player);
 
         DrawRectangleV(player->pos, player->size, LIGHTGRAY);
 
