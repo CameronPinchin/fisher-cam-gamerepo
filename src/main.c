@@ -3,6 +3,8 @@
 #include "../include/update.h"
 #include "../include/draw.h"
 
+#include <stdlib.h>
+
 int main(void) {
 
     struct game_state* game_state = init();
@@ -20,5 +22,4 @@ int main(void) {
     cleanup(game_state);
 
     return 0;
-
 }

@@ -113,8 +113,15 @@ struct game_state* init()
     InitWindow(screenWidth, screenHeight, "Operation Kaiser");
 
     struct game_state* game_state = malloc(sizeof *game_state);
+    struct player* player = &(game_state->player); // init player
+
     game_state->obstacle_state = malloc(sizeof *game_state->obstacle_state); // all pointer-members need to be malloc'd too.
     init_obstacles(game_state);
+
+    player->pos = (Vector2){screenWidth/2, screenHeight/2};
+    player->vel = (Vector2){0, 0};
+    player->size = (Vector2){50, 50};
+    player->speed = 50.0;
 
     return game_state;
 }
@@ -130,5 +137,4 @@ void cleanup(struct game_state* game_state)
 
     free(game_state->obstacle_state);
     free(game_state);
-
 }

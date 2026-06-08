@@ -23,6 +23,7 @@ void draw_obstacles(const struct game_state* game_state)
 void draw(const struct game_state* game_state)
 {
 
+
     BeginDrawing();
 
         ClearBackground(RAYWHITE);
@@ -31,6 +32,12 @@ void draw(const struct game_state* game_state)
         draw_obstacles(game_state);
 
 
+        struct player* player = &(game_state->player);
+
+        DrawRectangleV(player->pos, player->size, LIGHTGRAY);
+
     EndDrawing();
+
+    return;
 
 }
