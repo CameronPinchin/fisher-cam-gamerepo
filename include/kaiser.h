@@ -33,7 +33,7 @@ struct obstacle_state {
 };
 
 struct game_state {
-    struct player *player;
+    struct player player;
     struct obstacle_state *obstacle_state;
 };
 

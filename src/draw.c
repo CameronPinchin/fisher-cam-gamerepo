@@ -20,7 +20,7 @@ void draw_obstacles(const struct game_state* game_state)
 /* Maybe we return an int for error handling purposes
  *  return 0 and end-of-function if successful, 1 otherwise
  **/
-void draw(const struct game_state* game_state)
+void draw(struct game_state* game_state)
 {
 
 
