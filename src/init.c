@@ -9,7 +9,7 @@ struct game_state* init() {
 
     InitWindow(screenWidth, screenHeight, "Operation kaiser");
 
-    struct game_state* game_state = (struct game_state*)malloc(sizeof(struct game_state));
+    struct game_state* game_state = malloc(sizeof(*game_state));
 
     // initialize our player
     struct player* player = &(game_state->player);
