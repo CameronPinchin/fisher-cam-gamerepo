@@ -102,8 +102,6 @@ static int init_obstacles(struct game_state* game_state)
         game_state->obstacle_state->all_obstacles[i] = init_obstacle(i);
     }
 
-    fprintf(stderr, "[DBG] Obstacles have successfully been initialized.\n");
-
     return 0;
 }
 
@@ -112,7 +110,7 @@ struct game_state* init()
     const int screenWidth = SCREEN_WIDTH;
     const int screenHeight = SCREEN_HEIGHT;
 
-    InitWindow(screenWidth, screenHeight, "Operation kaiser");
+    InitWindow(screenWidth, screenHeight, "Operation Kaiser");
 
     struct game_state* game_state = malloc(sizeof *game_state);
     game_state->obstacle_state = malloc(sizeof *game_state->obstacle_state); // all pointer-members need to be malloc'd too.
@@ -130,7 +128,6 @@ void cleanup(struct game_state* game_state)
         free(game_state->obstacle_state->all_obstacles[i]);
     }
 
-    free(game_state->obstacle_state->all_obstacles);
     free(game_state->obstacle_state);
     free(game_state);
 

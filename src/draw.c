@@ -27,8 +27,6 @@ void draw(const struct game_state* game_state)
 
         ClearBackground(RAYWHITE);
 
-        DrawText("The inception of the Kaiser project.\nI've never watched inception.", 190, 200, 20, DARKGRAY);
-
         /* Draw Obastacles */
         draw_obstacles(game_state);
 
