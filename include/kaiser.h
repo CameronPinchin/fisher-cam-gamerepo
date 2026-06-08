@@ -1,4 +1,5 @@
 #include "raylib.h"
+#include "raymath.h"
 
 #ifndef KASIER_H
 #define KAISER_H
@@ -18,8 +19,11 @@ struct obstacle {
     const int width;
 };
 
-struct player_state {
-
+struct player {
+    float speed;
+    Vector2 pos;
+    Vector2 vel;
+    Vector2 size;
 };
 
 struct obstacle_state {
@@ -27,7 +31,7 @@ struct obstacle_state {
 };
 
 struct game_state {
-    struct player_state player;
+    struct player player;
     struct obstacle_state obstacle;
 };
 
